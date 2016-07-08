@@ -1,0 +1,23 @@
+body{
+    background-image: url("/images/scaraba.png");
+}
+#dungeonman{
+    position: fixed;
+    top: 40%;
+    left: 40%;
+}
+ .navbar.transparent.navbar-default {
+    border-width: 0px;
+    -webkit-box-shadow: 0px 0px;
+    box-shadow: 0px 0px;
+    background-color: rgba(0,0,0,0.40);
+ }
+ .navbar-default .navbar-brand {
+     color: #FFF;
+ }
+  .navbar-default .navbar-nav li a {
+     color: #FFF;
+ }
+   .navbar-default .navbar-nav li a:hover {
+     color: #e6e6e6;
+ }
