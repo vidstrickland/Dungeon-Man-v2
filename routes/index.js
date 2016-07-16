@@ -13,6 +13,14 @@ router.get("/login", function (req, res){
     res.render("login");
 });
 
+//login logic
+router.post("/login", passport.authenticate("local",
+    {
+        successRedirect: "/", 
+        failureRedirect: "/login"
+    }), function(req, res){
+});
+
 //show registration form
 router.get("/register", function(req, res){
    res.render("register");
@@ -31,5 +39,11 @@ router.post("/register", function(req, res){
         })
     })
 })
+
+//logout route
+router.get("/logout", function(req, res){
+    req.logout();
+    res.redirect("/");
+});
 
 module.exports = router;
