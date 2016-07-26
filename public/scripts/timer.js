@@ -1,8 +1,13 @@
+var updateTimer = function(){
 var secondsLabel = document.getElementById("seconds");
 var minutesLabel = document.getElementById("minutes");
 var hoursLabel = document.getElementById("hours");
+
+var User = require("../models/user");
 var timer = setInterval(update, 1000);
 var clock = 0;
+
+clock = User.get("time");
 
 function update(){
     clock++;
@@ -29,3 +34,5 @@ function update(){
         hoursLabel.innerHTML = hours;
     }
 }
+}
+module.exports = updateTimer;

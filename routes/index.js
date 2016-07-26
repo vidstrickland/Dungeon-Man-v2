@@ -2,6 +2,9 @@ var express = require("express");
 var router = express.Router();
 var passport = require("passport");
 var User = require("../models/user");
+var Timer = require("../models/timerScore");
+var middleware = require("../middleware");
+
 
 //Root Route
 router.get("/", function(req, res){
@@ -29,6 +32,7 @@ router.get("/register", function(req, res){
 //registration logic
 router.post("/register", function(req, res){
     var newUser = new User({username: req.body.username});
+    
     User.register(newUser, req.body.password, function(err, user){
         if(err){
             console.log(err);
@@ -44,6 +48,26 @@ router.post("/register", function(req, res){
 router.get("/logout", function(req, res){
     req.logout();
     res.redirect("/");
+});
+
+//save game route
+router.get("/save", middleware.isLoggedIn, function(req, res){
+    console.log(req.user.username);
+    User.findOne({username:req.user.username}, function(err, user){
+        if(err){
+            console.log(err);
+        }else{
+            console.log("found it!");
+            user.time = 145;
+            user.save(function(err){
+                if(err){
+                    console.log(err);
+                }
+            })
+    }
+    console.log(Timer.time);
+    res.redirect("/");
+    })
 });
 
 module.exports = router;
