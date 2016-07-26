@@ -5,8 +5,8 @@ var express         = require("express"),
     passport        = require("passport"),
     LocalStrategy   = require("passport-local"),
     User            = require("./models/user"),
-    Timer           = require("./models/timerScore"),
-    methodOverride  = require("method-override");
+    methodOverride  = require("method-override"),
+    timer           = require("./public/scripts/timer");
 
 //requiring routes
 var indexRoutes = require("./routes/index");
@@ -19,6 +19,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"))
 app.use(methodOverride("_method"));
+app.locals.timer = timer;
 
 //passport configuration
 app.use(require("express-session")({

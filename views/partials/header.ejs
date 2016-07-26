@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-    <title>Dungeon Man!</title>
+    <title>Dungeon Man Go!</title>
     <link rel = "stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel = "stylesheet" href="/stylesheets/main.css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:700' rel='stylesheet' type='text/css'>
@@ -18,23 +18,26 @@
 				        
 				      </button>
                     <a class="navbar-brand" href="/">
-                        <p>Dungeon Man</p>
+                        <p>Dungeon Man Go!</p>
                     </a>
                 </div>
                 
                 <div class="collapse navbar-collapse" id="dm-nav-mobile">
                     <ul class="nav navbar-nav navbar-right">
                         <% if(!currentUser){ %>
-                        <li><a href="/login">LOGIN</a></li>
-                        <li><a href="/register">SIGN UP</a></li>
+                        <li><a href="/login">Login</a></li>
+                        <li><a href="/register">Sign Up</a></li>
                         <% }else{ %>
-                        <li><a href=#><label id="hours">00</label>:<label id="minutes">00</label>:<label id="seconds">00</label></a></li>
-                        <li><a href="#"><%= currentUser.username %></a></li>
-                        <li><a href="/logout">LOGOUT</a></li>
+                        <%timer.reset()%>
+                        <li><a href="#">Hi, <%= currentUser.username %>!</a></li>
+                        <li><a href=#>Total Walked: <strong><%= currentUser.time %></strong>m</a></li>
+                        <!--<li><a href=#>Current: <label id="hours">00</label>:<label id="minutes">00</label>:<label id="seconds">00</label></a></li>-->
+                        <li><a href=#>Current Walk: <label id="currentWalk">0</label>m</a></li>
+                        <li><a href="/save">Save Game</a></li>
+                        <li><a href="/logout">Logout</a></li>
                         <% } %>
 
                     </ul>
                 </div>
-                
-        </nav>
+            </nav>
         </div>

@@ -4,6 +4,13 @@ body{
 p{
     padding-bottom: 20px;
 }
+li{
+    color: #fff;
+    
+}
+label{
+    line-height: 0;
+}
 .navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
     background-color: rgba(0,0,0,0.0);
 }
@@ -73,12 +80,16 @@ margin-left: 550px;
 	}
 	.navbar-nav>li {
         float: none;
+        margin-top: 35px;
+        margin-bottom: 20px;
+        padding-bottom: 5px;
+        
     }
     .navbar-nav>li>a {
-        padding-top: 40px;
-        padding-bottom: 40px;
-        margin-bottom: 20px;
+        height: 100px;
+        font-size: 58px;
         border-bottom: 1px solid white;
+        
     }
     .collapse.in{
   		display:block !important;

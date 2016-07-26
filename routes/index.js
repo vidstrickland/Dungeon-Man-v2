@@ -2,13 +2,15 @@ var express = require("express");
 var router = express.Router();
 var passport = require("passport");
 var User = require("../models/user");
-var Timer = require("../models/timerScore");
 var middleware = require("../middleware");
+var timer = require("../public/scripts/timer");
 
+var currentTime = 0;
 
 //Root Route
 router.get("/", function(req, res){
     res.render("landing");
+    //console.log("CLOCK COUNT: " + timer.currentClock());
 });
 
 //show login form
@@ -20,7 +22,7 @@ router.get("/login", function (req, res){
 router.post("/login", passport.authenticate("local",
     {
         successRedirect: "/", 
-        failureRedirect: "/login"
+        failureRedirect: "/login",
     }), function(req, res){
 });
 
@@ -32,8 +34,13 @@ router.get("/register", function(req, res){
 //registration logic
 router.post("/register", function(req, res){
     var newUser = new User({username: req.body.username});
-    
     User.register(newUser, req.body.password, function(err, user){
+        user.time = 0;
+        user.save(function(err){
+                if(err){
+                    console.log(err);
+                }
+            })
         if(err){
             console.log(err);
             res.redirect("/register");
@@ -57,17 +64,18 @@ router.get("/save", middleware.isLoggedIn, function(req, res){
         if(err){
             console.log(err);
         }else{
-            console.log("found it!");
-            user.time = 145;
+            user.time += timer.currentClock();
+            console.log("Current Time: " + timer.currentClock());
+            console.log("Total Time: " + user.time);
             user.save(function(err){
                 if(err){
                     console.log(err);
                 }
             })
     }
-    console.log(Timer.time);
     res.redirect("/");
     })
 });
 
 module.exports = router;
+exports.time = currentTime;

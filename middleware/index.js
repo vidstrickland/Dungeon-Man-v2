@@ -1,5 +1,3 @@
-var Timer = require("../models/timerScore");
-
 //all the middleware goes here
 var middlewareObj = {};
 
