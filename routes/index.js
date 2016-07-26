@@ -35,19 +35,21 @@ router.get("/register", function(req, res){
 router.post("/register", function(req, res){
     var newUser = new User({username: req.body.username});
     User.register(newUser, req.body.password, function(err, user){
+        if(err){
+            console.log(err);
+            req.flash("error", err.message);
+            res.redirect("/register");
+        }else{
         user.time = 0;
         user.save(function(err){
                 if(err){
                     console.log(err);
                 }
             })
-        if(err){
-            console.log(err);
-            res.redirect("/register");
-        }
         passport.authenticate("local")(req, res, function(){
-            res.redirect("/register");
+            res.redirect("/");
         })
+        }
     })
 })
 

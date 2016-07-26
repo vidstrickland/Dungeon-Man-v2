@@ -11,6 +11,15 @@ li{
 label{
     line-height: 0;
 }
+h2{
+    color: #fff;
+}
+.login{
+    background-color: rgba(0,0,0,0.40);
+    border-radius: 10px;
+    margin: 60px;
+    padding: 20px;
+}
 .navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
     background-color: rgba(0,0,0,0.0);
 }
@@ -19,6 +28,7 @@ margin-left: 550px;
 }
 #dungeonman{
     position: fixed;
+    z-index: -1;
     top: 40%;
     left: 40%;
 }
@@ -52,7 +62,7 @@ margin-left: 550px;
      padding-top: 43px;
      padding-left: 20px;
      color: #FFF;
-     font-size: 40px;
+     font-size: 58px;
     }
     .navbar-left,.navbar-right {
         float: none !important;
@@ -79,6 +89,7 @@ margin-left: 550px;
 		margin-top: 7.5px;
 	}
 	.navbar-nav>li {
+	    
         float: none;
         margin-top: 35px;
         margin-bottom: 20px;
