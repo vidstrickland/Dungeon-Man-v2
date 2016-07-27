@@ -11,7 +11,6 @@ var express         = require("express"),
 
 //requiring routes
 var indexRoutes = require("./routes/index");
-console.log(process.env.DATABASEURL);
 
 //database url
 var url = process.env.DATABASEURL || "mongodb://localhost/dungeon_man"
