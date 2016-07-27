@@ -16,7 +16,6 @@ console.log(process.env.DATABASEURL);
 //database url
 var url = process.env.DATABASEURL || "mongodb://localhost/dungeon_man"
 mongoose.connect(url);
-console.log(url);
 
 app.use(bodyParser.urlencoded({extended:true}));
 app.set("view engine", "ejs");
