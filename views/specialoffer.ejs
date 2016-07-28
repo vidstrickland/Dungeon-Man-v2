@@ -24,7 +24,7 @@
   </div>
 
   <div class="specialoffer">
-    <p><strong>Current Price: Only <%= currentDPCost[currentDPCost.length-1].currentDPCost %><%if(!isNaN(currentDPCost[currentDPCost.length-1].currentDPCost)){%> dP<%}%>!</strong></p>
+    <p><strong>Current Price: <%if(!isNaN(currentDPCost[currentDPCost.length-1].currentDPCost)){%> Only <%}%><%= currentDPCost[currentDPCost.length-1].currentDPCost %><%if(!isNaN(currentDPCost[currentDPCost.length-1].currentDPCost)){%> dP<%}%>!</strong></p>
     
      <% if(isNaN(currentDPCost[currentDPCost.length-1].currentDPCost)){ %>
                        <p>The economy is in flux! This could be HUGE!</p>
