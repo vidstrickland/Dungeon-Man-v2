@@ -27,9 +27,9 @@
     <p><strong>Current Price: Only <%= currentDPCost[currentDPCost.length-1].currentDPCost %><%if(!isNaN(currentDPCost[currentDPCost.length-1].currentDPCost)){%> dP<%}%>!</strong></p>
     
      <% if(isNaN(currentDPCost[currentDPCost.length-1].currentDPCost)){ %>
-                       <p>The economy is in flux! This could mean HUGE rewards!</p>
+                       <p>The economy is in flux! This could be HUGE!</p>
                         <% }else if(currentDPCost[currentDPCost.length-1].currentDPCost < currentDPCost[currentDPCost.length-2].currentDPCost){ %>
-                       <p>The value of dP is falling! Buy in while it's cheap!</p>
+                       <p>The value of dP is falling! Buy while it's cheap!</p>
                         <% }else if(currentDPCost[currentDPCost.length-1].currentDPCost > currentDPCost[currentDPCost.length-2].currentDPCost){ %>
                         <p>The value of dP is rising! Buy before it's too late!</p>
                         <% } %>
