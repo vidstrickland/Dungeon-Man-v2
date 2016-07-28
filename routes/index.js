@@ -49,6 +49,7 @@ router.get("/register", function(req, res){
 
 //show admin tools
 router.get("/admin", function(req, res){
+    var newDPCost = new DPCost({currentDPCost: req.body.dpcost});
     DPCost.find({},{},function(err, currentDPCost){
         res.render("admin", {
             "currentDPCost" : currentDPCost
