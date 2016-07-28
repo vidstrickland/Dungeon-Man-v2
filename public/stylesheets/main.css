@@ -14,6 +14,9 @@ label{
 h2{
     color: #fff;
 }
+a{
+    color: #fff;
+}
 .login{
     background-color: rgba(0,0,0,0.40);
     border-radius: 10px;
@@ -31,6 +34,31 @@ margin-left: 550px;
     z-index: -1;
     top: 40%;
     left: 40%;
+}
+.specialoffer{
+    color: #fff;
+    position: fixed;
+    bottom: 0px;
+    font-size: 45px;
+    text-align: center;
+    padding-top: 23px;
+    line-height: 30px;
+    margin: auto;
+    background-color: rgba(51,153,51,0.80);
+    width: 100%;
+}
+.textbox{
+    background-color: rgba(0,0,0, 0.40);
+    margin: auto;
+    width: 95%;
+    color: #fff;
+    padding: 10px;
+    font-size: 20px;
+    margin-bottom: 160px;
+    border-radius: 0px 0px 10px 10px;
+}
+.textbox p{
+    border-bottom: 1px solid white;
 }
  .navbar.transparent.navbar-default {
     border-width: 0px;

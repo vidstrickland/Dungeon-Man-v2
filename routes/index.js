@@ -4,12 +4,28 @@ var passport = require("passport");
 var User = require("../models/user");
 var middleware = require("../middleware");
 var timer = require("../public/scripts/timer");
+var DPCost = require("../models/dpCost");
+var mongoose        = require("mongoose");
 
 var currentTime = 0;
 
 //Root Route
 router.get("/", function(req, res){
-    res.render("landing");
+    DPCost.find({},{},function(err, currentDPCost){
+        res.render("landing", {
+            "currentDPCost" : currentDPCost
+        });    
+    });
+    //console.log("CLOCK COUNT: " + timer.currentClock());
+});
+
+//About Route
+router.get("/about", function(req, res){
+    DPCost.find({},{},function(err, currentDPCost){
+        res.render("about", {
+            "currentDPCost" : currentDPCost
+        });    
+    });
     //console.log("CLOCK COUNT: " + timer.currentClock());
 });
 
@@ -29,6 +45,25 @@ router.post("/login", passport.authenticate("local",
 //show registration form
 router.get("/register", function(req, res){
    res.render("register");
+});
+
+//show admin tools
+router.get("/admin", function(req, res){
+    DPCost.find({},{},function(err, currentDPCost){
+        res.render("admin", {
+            "currentDPCost" : currentDPCost
+        });    
+    });
+    
+});
+
+//admin logic
+router.post("/admin", function(req, res){
+    var newDPCost = new DPCost({currentDPCost: req.body.dpcost});
+    DPCost.update({currentDPCost: req.body.dpcost});
+    newDPCost.save();
+   console.log(req.body.dpcost);
+   res.redirect("/admin");
 });
 
 //registration logic
@@ -77,6 +112,16 @@ router.get("/save", middleware.isLoggedIn, function(req, res){
     }
     res.redirect("/");
     })
+});
+
+//Special Offer Route
+router.get("/specialoffer", function(req, res){
+    DPCost.find({},{},function(err, currentDPCost){
+        res.render("specialoffer", {
+            "currentDPCost" : currentDPCost
+        });    
+    });
+    //console.log("CLOCK COUNT: " + timer.currentClock());
 });
 
 module.exports = router;

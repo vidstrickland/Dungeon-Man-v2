@@ -1,0 +1,38 @@
+<% include partials/header %>
+
+  <div class="textbox">
+    <h2><strong>Dungeon Man Go! Plus</strong></h2>
+    <p>Want to get in on the hottest strategy to get dP at Camp Videogamely?</br></br>
+    
+    For just a few dP, you can become a member of <strong>Dungeon Man Go! Plus</strong>, an exclusive club available <em>only</em> to Camp Videogamely attendees!</p>
+    <h2><strong>What do I get?</strong></h2>
+    All members of DMG! Plus will receive 
+    <li>an entry into the <strong>Camp Videogamely dP Lotto!</strong></li>
+    <li>an <strong>additional 10,000 meters walked</strong> in their Dungeon Man Go! game</li>
+    <li>a special <strong>Camp Videogamely achievement</strong> for their Dungeon Man Go! profile page (coming soon!)</li> 
+    <p></p>
+    <h2><strong>Whoa, there's a lotto?</strong></h2>
+    <p>Yes! Early on during Day 3, a random member of DMG! Plus will receive a <strong>life changing sum</strong> of dragon points, over half of the dP collected as part of this special offer! </p>
+    <h2>How do I sign up?</h2>
+    <p>Just find <strong>vid</strong> somewhere at Camp Videogamely and transfer the appropriate amount of dP to him and it's a done deal!</p>
+    <h2>Can I have multiple lotto entries?</h2>
+    <p>Absolutely! Just transfer multiples of the current dP price to receive that many entries!</p>
+    <h2>What's the catch?</h2>
+    <p>There's only one catch: The value of dP will be in flux throughout the weekend! As more people sign up, the cost of entry gets higher! If a long time passes without an entry, the cost of entry goes down! Check the bottom of this page for the current price of entry.</p>
+    <h2>It's displaying something that isn't a dP amount...?</h2>
+    <p>Well isn't that mysterious?</p>
+  </div>
+
+  <div class="specialoffer">
+    <p><strong>Current Price: Only <%= currentDPCost[currentDPCost.length-1].currentDPCost %><%if(!isNaN(currentDPCost[currentDPCost.length-1].currentDPCost)){%> dP<%}%>!</strong></p>
+    
+     <% if(isNaN(currentDPCost[currentDPCost.length-1].currentDPCost)){ %>
+                       <p>The economy is in flux! This could mean HUGE rewards!</p>
+                        <% }else if(currentDPCost[currentDPCost.length-1].currentDPCost < currentDPCost[currentDPCost.length-2].currentDPCost){ %>
+                       <p>The value of dP is falling! Buy in while it's cheap!</p>
+                        <% }else if(currentDPCost[currentDPCost.length-1].currentDPCost > currentDPCost[currentDPCost.length-2].currentDPCost){ %>
+                        <p>The value of dP is rising! Buy before it's too late!</p>
+                        <% } %>
+  </div>
+
+<% include partials/footer %>

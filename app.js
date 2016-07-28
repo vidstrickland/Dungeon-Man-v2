@@ -6,6 +6,7 @@ var express         = require("express"),
     passport        = require("passport"),
     LocalStrategy   = require("passport-local"),
     User            = require("./models/user"),
+    dpCost          = require("./models/dpCost"),
     methodOverride  = require("method-override"),
     timer           = require("./public/scripts/timer");
 
