@@ -1,5 +1,6 @@
-=============Dungeon Man Ver. 2.0=============
+=============Dungeon Man Ver. 2.0.2=============
 
--------------Project Goals-------------
-1. Change DungeonMan.com from a static site to a dynamic one
-2. Add user-facing tracking for length of time and number of visits
+-------------Patch Notes-------------
+Removed link to the Camp Videogamely special offer.
+Increased total distance walked for all Dungeon Man Go! Plus members
+Added recent changes/upcoming changes sections to the new Patch Notes page

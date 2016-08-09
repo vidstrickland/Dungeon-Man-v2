@@ -47,6 +47,11 @@ router.get("/register", function(req, res){
    res.render("register");
 });
 
+//show patch notes page
+router.get("/patchnotes", function(req, res){
+   res.render("patchnotes");
+});
+
 //show admin tools
 router.get("/admin", function(req, res){
     var newDPCost = new DPCost({currentDPCost: 0});
