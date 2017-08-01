@@ -32,8 +32,9 @@ margin-left: 550px;
 #dungeonman{
     position: fixed;
     z-index: -1;
-    top: 40%;
-    left: 40%;
+    margin: 0%;
+    margin-left: 50%;
+    transform: translate(-50%, -50%);
 }
 .specialoffer{
     color: #fff;
